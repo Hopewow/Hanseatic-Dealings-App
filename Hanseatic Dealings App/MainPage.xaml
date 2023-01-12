@@ -1,7 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hanseatic_Dealings_App.MainPage">
+             x:Class="Hanseatic_Dealings_App.MainPage"
+             xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
+             x:DataType="viewmodel:ShipViewModel">
 
 
     <ScrollView Orientation="Vertical">
@@ -10,32 +12,96 @@
                 <Image Source="map.png" 
                        WidthRequest="1280"
                        HeightRequest="1024" />
-                
-                <RadioButton TranslationX="47" TranslationY="400" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="111" TranslationY="572" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="81" TranslationY="796" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="204" TranslationY="885" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="362" TranslationY="58" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="337" TranslationY="765" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="335" TranslationY="945" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="469" TranslationY="449" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="407" TranslationY="591" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="558" TranslationY="728" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="506" TranslationY="741" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="467" TranslationY="765" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="419" TranslationY="793" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="615" TranslationY="576" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="649" TranslationY="766" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="803" TranslationY="243" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="792" TranslationY="382" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="803" TranslationY="704" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="808" TranslationY="805" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
-                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+
+                <Label Text="{Binding Test}"
+                       AbsoluteLayout.LayoutBounds="1130, 47, 100, 50" 
+                       FontAttributes="Bold"
+                       FontSize="Medium" 
+                       TextColor="White"/>
+
+                <Button Text="Markede" 
+                        AbsoluteLayout.LayoutBounds="1110, 80, 100, 50"
+                        BackgroundColor="Grey"
+                        TextColor="White"
+                        FontAttributes="Bold"
+                        FontSize="Medium" />
+
+
+                <RadioButton TranslationX="47" TranslationY="400" 
+                             Content="London" FontSize="25" FontAttributes="Bold"
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="111" TranslationY="572" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="81" TranslationY="796" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="204" TranslationY="885" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="362" TranslationY="58" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="337" TranslationY="765" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="335" TranslationY="945" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="525" TranslationY="200" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="469" TranslationY="449" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="407" TranslationY="591" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="558" TranslationY="728" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="418" TranslationY="742" 
+                             Content="London" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="467" TranslationY="765" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="419" TranslationY="793" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="615" TranslationY="576" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="649" TranslationY="766" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="803" TranslationY="243" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="792" TranslationY="382" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="803" TranslationY="704" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="808" TranslationY="805" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="967" TranslationY="242" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="985" TranslationY="445" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="1150" TranslationY="120" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="1118" TranslationY="241" 
+                             Content="London" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft" 
+                             CheckedChanged="goToMarketPage" />
+                <RadioButton TranslationX="525" TranslationY="200" 
+                             Content="London" FontSize="25" FontAttributes="Bold" 
+                             CheckedChanged="goToMarketPage" />
             </AbsoluteLayout>
         </ScrollView>
     </ScrollView>
