@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hanseatic_Dealings_App.MainPage">
+
+
+    <ScrollView Orientation="Vertical">
+        <ScrollView Orientation="Horizontal">
+            <AbsoluteLayout>
+                <Image Source="map.png" 
+                       WidthRequest="1280"
+                       HeightRequest="1024" />
+                
+                <RadioButton TranslationX="47" TranslationY="400" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="111" TranslationY="572" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="81" TranslationY="796" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="204" TranslationY="885" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="362" TranslationY="58" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="337" TranslationY="765" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="335" TranslationY="945" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="469" TranslationY="449" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="407" TranslationY="591" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="558" TranslationY="728" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="506" TranslationY="741" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="467" TranslationY="765" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="419" TranslationY="793" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+                <RadioButton TranslationX="525" TranslationY="200" BorderColor="Red" BackgroundColor="Red" TextColor="Red" Content="London" FontSize="25" FontAttributes="Bold" />
+            </AbsoluteLayout>
+        </ScrollView>
+    </ScrollView>
+</ContentPage>
