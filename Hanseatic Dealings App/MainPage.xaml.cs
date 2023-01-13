@@ -6,9 +6,13 @@ public partial class MainPage : ContentPage
 {
 	public MainPage(ShipViewModel vm)
 	{
-		InitializeComponent();
+        var window = App.Window;
+        window.Created += (s, e) =>
+        {
+            BindingContext = vm;
+            InitializeComponent();
 
-		BindingContext = vm;
+        };
 	}
 
     private async void goToMarketPage(object sender, CheckedChangedEventArgs e)
@@ -20,6 +24,7 @@ public partial class MainPage : ContentPage
 			Button market = (Button)Shell.Current.CurrentPage.FindByName("Market");
 			market.IsVisible = true;
 			market.CommandParameter = $"{btn.Content}";
+
 			await Shell.Current.GoToAsync($"{nameof(MarketPage)}?Id={btn.Content}");
 		}
     }

@@ -14,23 +14,27 @@
                        HeightRequest="1024" />
 
                 <Label Text="{Binding Money}"
-                       AbsoluteLayout.LayoutBounds="1130, 47, 100, 50" 
+                       AbsoluteLayout.LayoutBounds="1105, 47, 100, 50" 
                        FontAttributes="Bold"
+                       TextColor="Gold"
                        FontSize="Medium" 
                        FlowDirection="RightToLeft"/>
+
+                <Image AbsoluteLayout.LayoutBounds="1210, 47, 23, 23" 
+                       Source="dotnet_bot.png"/>
 
                 <Button Text="Market" 
                         x:Name="Market"
                         IsVisible="false"
                         Command="{Binding RedirectToMarketCommand}"
-                        AbsoluteLayout.LayoutBounds="1110, 77, 100, 45"
-                        CornerRadius="10"
-                        BackgroundColor="Grey"
-                        TextColor="White"
-                        FontAttributes="Bold"
-                        FontSize="Medium" />
+                        AbsoluteLayout.LayoutBounds="1110, 77, 100, 45" CornerRadius="10"
+                        BackgroundColor="#474545" TextColor="GhostWhite"
+                        FontAttributes="Bold" FontSize="Medium" />
 
-                <RadioButton TranslationX="47" TranslationY="400" 
+                <Button AbsoluteLayout.LayoutBounds="39,910, 25, 40" BackgroundColor="Transparent"
+                        Command="{Binding RedirectToHiddenAreaCommand}"/>
+
+                <RadioButton x:Name="hubert" TranslationX="47" TranslationY="400" 
                              Content="Edinburg" FontSize="25" FontAttributes="Bold"
                              CheckedChanged="goToMarketPage" />
                 <RadioButton TranslationX="111" TranslationY="572" 
