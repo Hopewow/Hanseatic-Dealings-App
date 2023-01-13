@@ -6,5 +6,11 @@ namespace Hanseatic_Dealings_App.ViewModel;
 public partial class ShipViewModel : ObservableObject
 {
     [ObservableProperty]
-    public string test = "Hello";
+    public string money = "0.00";
+
+    [RelayCommand]
+    async Task RedirectToMarket(string market)
+    {
+        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?Id={market}");
+    }
 }

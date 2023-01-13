@@ -4,7 +4,7 @@ namespace Hanseatic_Dealings_App;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(MarketViewModel vm)
+	public MainPage(ShipViewModel vm)
 	{
 		InitializeComponent();
 
@@ -17,6 +17,9 @@ public partial class MainPage : ContentPage
 
 		if (e.Value)
 		{
+			Button market = (Button)Shell.Current.CurrentPage.FindByName("Market");
+			market.IsVisible = true;
+			market.CommandParameter = $"{btn.Content}";
 			await Shell.Current.GoToAsync($"{nameof(MarketPage)}?Id={btn.Content}");
 		}
     }
