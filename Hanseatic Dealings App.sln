@@ -4,6 +4,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hanseatic Dealings App", "Hanseatic Dealings App\Hanseatic Dealings App.csproj", "{08953B61-A7F2-4593-BFAD-343E4824CE56}"
+	ProjectSection(ProjectDependencies) = postProject
+		{08462495-0151-47BF-A5C4-777999D2A46E} = {08462495-0151-47BF-A5C4-777999D2A46E}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hanseatic Class Lib", "Hanseatic Class Lib\Hanseatic Class Lib.csproj", "{08462495-0151-47BF-A5C4-777999D2A46E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hanseatic Web Api", "Hanseatic Web Api\Hanseatic Web Api.csproj", "{FD629D94-F733-4787-8645-3283F2D81F89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,6 +24,14 @@ Global
 		{08953B61-A7F2-4593-BFAD-343E4824CE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08953B61-A7F2-4593-BFAD-343E4824CE56}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08953B61-A7F2-4593-BFAD-343E4824CE56}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{08462495-0151-47BF-A5C4-777999D2A46E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08462495-0151-47BF-A5C4-777999D2A46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08462495-0151-47BF-A5C4-777999D2A46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08462495-0151-47BF-A5C4-777999D2A46E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD629D94-F733-4787-8645-3283F2D81F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD629D94-F733-4787-8645-3283F2D81F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD629D94-F733-4787-8645-3283F2D81F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD629D94-F733-4787-8645-3283F2D81F89}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,7 +15,7 @@ public partial class ShipViewModel : ObservableObject
     }
 
     [RelayCommand]
-    async Task RedirectToHiddenArea(string market)
+    void RedirectToHiddenArea(string market)
     {
         int secondsToVibrate = Random.Shared.Next(1, 7);
         TimeSpan vibrationLength = TimeSpan.FromSeconds(secondsToVibrate);

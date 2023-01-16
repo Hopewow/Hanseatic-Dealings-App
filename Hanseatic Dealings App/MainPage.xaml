@@ -21,7 +21,8 @@
                        FlowDirection="RightToLeft"/>
 
                 <Image AbsoluteLayout.LayoutBounds="1210, 47, 23, 23" 
-                       Source="dotnet_bot.png"/>
+                       Source="coins.png"
+                       BackgroundColor="Transparent"/>
 
                 <Button Text="Market" 
                         x:Name="Market"
