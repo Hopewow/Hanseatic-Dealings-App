@@ -5,10 +5,159 @@
              Title="Market Place"
              xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
              x:DataType="viewmodel:MarketViewModel">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#e0b38c"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BorderWidth" Value="2"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="MaximumHeightRequest" Value="2"/>
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    
+    <Grid RowDefinitions="10*,84*,6*" Padding="10" BackgroundColor="#e0b38c">
+        <Grid Grid.Row="0" ColumnDefinitions="auto,auto,auto,*" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Grid.Column="0"
+                Text="City: "
+            />
+            <Label
+                Grid.Column="1"
+                Text="{Binding Text}"
+            />
+            <Label
+                Grid.Column="2"
+                Text=" Cargo: "
+            />
+            <Label
+                Grid.Column="3"
+                Text="capacity/amount"
+            />
+        </Grid>
+        <ScrollView Orientation="Vertical" Grid.Row="1">
+            <Grid ColumnSpacing="5" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="name"
+                    />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Text="1000"
+                    />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Text="1000"
+                    />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Text="1000"
+                    />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="4"
+                    Text="1000"
+                    />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="5"
+                    Text="1000"
+                    />
+
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="name"
+                    />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="1000"
+                    />
+                <Button
+                    Padding="0"
+                    Grid.Row="1"
+                    Text="1000"
+                    Grid.Column="2"
+                    />
+                <Button
+                    Padding="0"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Text="1000"
+                    />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="4"
+                    Text="1000"
+                    />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="5"
+                    Text="1000"
+                    />
+
+            </Grid>
+            <!--<CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>-->
+        </ScrollView>
+        
+        <Grid 
+            Padding="2"
+            ColumnSpacing="4"
+            Grid.Row="2"
+            ColumnDefinitions="*,auto">
+            <Grid Grid.Column="0" ColumnDefinitions="auto,*" >
+                <Label
+                    FontSize="Medium"
+                    Grid.Column="0"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    Text="$"
+                />
+                <Label
+                    Grid.Column="1"
+                    FontSize="Medium"
+                    VerticalTextAlignment="Center"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding Money}"
+                    LineBreakMode="HeadTruncation"
+                />
+            </Grid>
+            <Grid Grid.Column="2" ColumnDefinitions="auto,auto,auto,auto">
+                <Button Grid.Column="0" Text="1"/>
+                <Button Grid.Column="1" Text="5"/>
+                <Button Grid.Column="2" Text="50"/>
+                <Button Grid.Column="3" Text="Max"/>
+            </Grid>
+        </Grid>
+    </Grid>
 </ContentPage>
