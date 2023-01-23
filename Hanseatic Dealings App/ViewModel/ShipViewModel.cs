@@ -1,12 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Hanseatic_Dealings_App.Models;
 
 namespace Hanseatic_Dealings_App.ViewModel;
 
 public partial class ShipViewModel : ObservableObject
 {
     [ObservableProperty]
-    public int money = 0;
+    public ShipModel player;
+
+    [ObservableProperty]
+    public List<CityModel> cities;
 
     [RelayCommand]
     async Task RedirectToMarket(string market)

@@ -3,17 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Hanseatic_Dealings_App.MainPage"
              xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
+             xmlns:model="clr-namespace:Hanseatic_Dealings_App.Models"
              x:DataType="viewmodel:ShipViewModel">
 
 
     <ScrollView Orientation="Vertical">
         <ScrollView Orientation="Horizontal">
-            <AbsoluteLayout>
-                <Image Source="map.png" 
-                       WidthRequest="1280"
-                       HeightRequest="1024" />
-
-                <Label Text="{Binding Money}"
+            <AbsoluteLayout x:Name="Page">
+                <Image Source="map.png" HeightRequest="1024" WidthRequest="1280"/>
+                
+                <Label Text="{Binding Player.Money}"
                        AbsoluteLayout.LayoutBounds="1105, 47, 100, 50" 
                        FontAttributes="Bold"
                        TextColor="Gold"
@@ -24,6 +23,9 @@
                        Source="coins.png"
                        BackgroundColor="Transparent"/>
 
+                <Button BackgroundColor="Transparent"
+                        Command="{Binding RedirectToHiddenAreaCommand}"/>
+
                 <Button Text="Market" 
                         x:Name="Market"
                         IsVisible="false"
@@ -31,82 +33,6 @@
                         AbsoluteLayout.LayoutBounds="1110, 77, 100, 45" CornerRadius="10"
                         BackgroundColor="#474545" TextColor="GhostWhite"
                         FontAttributes="Bold" FontSize="Medium" />
-
-                <Button AbsoluteLayout.LayoutBounds="39,910, 25, 40" BackgroundColor="Transparent"
-                        Command="{Binding RedirectToHiddenAreaCommand}"/>
-
-                <RadioButton x:Name="hubert" TranslationX="47" TranslationY="400" 
-                             Content="Edinburg" FontSize="25" FontAttributes="Bold"
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="111" TranslationY="572" 
-                             Content="Bridlington" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="81" TranslationY="796" 
-                             Content="London" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="204" TranslationY="885" 
-                             Content="Terneuzen" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="362" TranslationY="58" 
-                             Content="London" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="215" TranslationY="765" 
-                             Content="Groningen" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="335" TranslationY="945" 
-                             Content="Köln" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="525" TranslationY="200" 
-                             Content="Oslo" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="469" TranslationY="449" 
-                             Content="Aalborg" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="407" TranslationY="591" 
-                             Content="Ribe" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="558" TranslationY="728" 
-                             Content="Rostock" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="425" TranslationY="741" 
-                             Content="Lübeck" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="467" TranslationY="765" 
-                             Content="Hamborg" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="325" TranslationY="793" 
-                             Content="Bremen" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="615" TranslationY="576" 
-                             Content="Malmø" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="649" TranslationY="766" 
-                             Content="Stettin" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="682" TranslationY="243" 
-                             Content="Stockholm" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft"
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="792" TranslationY="382" 
-                             Content="Visby" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="803" TranslationY="704" 
-                             Content="Gdansk" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="808" TranslationY="805" 
-                             Content="Torun" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="967" TranslationY="242" 
-                             Content="Tallinn" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="985" TranslationY="445" 
-                             Content="Riga" FontSize="25" FontAttributes="Bold" 
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="953" TranslationY="120" 
-                             Content="Sankt Petersborg" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft"
-                             CheckedChanged="goToMarketPage" />
-                <RadioButton TranslationX="1140" TranslationY="241" 
-                             Content="Velikij" FontSize="25" FontAttributes="Bold" FlowDirection="RightToLeft" 
-                             CheckedChanged="goToMarketPage" />
             </AbsoluteLayout>
         </ScrollView>
     </ScrollView>
