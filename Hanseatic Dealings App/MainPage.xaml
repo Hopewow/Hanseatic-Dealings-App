@@ -16,12 +16,12 @@
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsTextPredictionEnabled="True" HorizontalOptions="Center" 
                    WidthRequest="500" HeightRequest="50" Text="{Binding User.Email}"
-                   HorizontalTextAlignment="Center" FontSize="Medium"/>
+                   HorizontalTextAlignment="Center" FontSize="Medium" Placeholder="Enter username here"/>
                 <Label Text="Password" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsPassword="True" HorizontalOptions="Center"
                    WidthRequest="500" HeightRequest="50" Text="{Binding User.Password}"
-                   HorizontalTextAlignment="Center" FontSize="Medium"/>
+                   HorizontalTextAlignment="Center" FontSize="Medium" Placeholder="password"/>
             </StackLayout>
 
             <StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Spacing="20">

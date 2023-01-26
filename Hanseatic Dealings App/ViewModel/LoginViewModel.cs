@@ -17,7 +17,8 @@ public partial class LoginViewModel : ObservableObject
         ApiModel CallApi = new();
 
         var client = CallApi.getClient();
-        HttpResponseMessage response = await client.GetAsync($"api/User?email={this.User.Email}&psw={this.User.Password}");
+        User.Password = PasswordHashModel.HashPassword(User.Password);
+        HttpResponseMessage response = await client.GetAsync($"api/User?email={User.Email}&psw={User.Password}");
 
         var code = response.StatusCode;
 

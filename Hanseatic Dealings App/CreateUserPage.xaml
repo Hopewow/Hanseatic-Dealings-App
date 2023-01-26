@@ -17,19 +17,19 @@
                 <Label Text="Username:" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsTextPredictionEnabled="True" HorizontalOptions="Center" 
-                   WidthRequest="200" HeightRequest="50" Text="{Binding User.Email}"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding User.Email}" Placeholder="Enter username here"
                    HorizontalTextAlignment="Center" FontSize="Medium"/>
 
                 <Label Text="Password" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsPassword="True" HorizontalOptions="Center"
-                   WidthRequest="200" HeightRequest="50" Text="{Binding User.Password}"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding User.Password}" Placeholder="password"
                    HorizontalTextAlignment="Center" FontSize="Medium"/>
 
                 <Label Text="Confirm Password" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsPassword="True" HorizontalOptions="Center"
-                   WidthRequest="200" HeightRequest="50" Text="{Binding User.ConfirmPassword}"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding User.ConfirmPassword}" Placeholder="Re enter password"
                    HorizontalTextAlignment="Center" FontSize="Medium"/>
             </StackLayout>
 

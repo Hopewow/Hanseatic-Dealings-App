@@ -26,6 +26,7 @@ public partial class CreateUserViewModel : ObservableObject
         }
         else
         {
+            User.Password = PasswordHashModel.HashPassword(User.Password);
             HttpResponseMessage response = await Client.PostAsJsonAsync<UserModel>("api/User", User);
 
             if (response.StatusCode == HttpStatusCode.OK) {

@@ -15,7 +15,7 @@
             <Label Text="Ship Name:" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold" TextColor="Red"/>
             <Entry IsTextPredictionEnabled="True" HorizontalOptions="Center" 
-                   WidthRequest="200" HeightRequest="50" Text="{Binding Ship.Name}"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding Ship.Name}" Placeholder="Ship name"
                    HorizontalTextAlignment="Center" FontSize="Medium" TextColor="Red"/>
         </StackLayout>
 
