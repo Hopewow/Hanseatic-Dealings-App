@@ -1,13 +1,17 @@
 using Hanseatic_Dealings_App.ViewModel;
 
+
 namespace Hanseatic_Dealings_App;
 
 public partial class MapPage : ContentPage
 {
+    public MapViewModel Data { get; set; }
+
     public MapPage(MapViewModel vm)
     {
         InitializeComponent();
         BindingContext = vm;
+        Data = vm;
 
         addButtons(vm);
     }
@@ -20,6 +24,7 @@ public partial class MapPage : ContentPage
             RadioButton button = new();
 
             button.Parent = Page;
+            button.Value = city.Id;
             button.TranslationX = Double.Parse(city.Xcord);
             button.TranslationY = Double.Parse(city.Ycord);
             button.CheckedChanged += goToMarketPage;
@@ -54,7 +59,13 @@ public partial class MapPage : ContentPage
             market.IsVisible = true;
             market.CommandParameter = $"{btn.Content}";
 
-            await Shell.Current.GoToAsync($"{nameof(MarketPage)}?Id={btn.Content}");
+            var param = new Dictionary<string, object>()
+            {
+                {"ShipId", Data.Player.Id},
+                {"CityId", btn.Value}
+            };
+
+            await Shell.Current.GoToAsync($"{nameof(MarketPage)}", param);
         }
     }
 }

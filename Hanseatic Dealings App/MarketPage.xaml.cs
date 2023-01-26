@@ -26,12 +26,12 @@ public partial class MarketPage : ContentPage
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-        HttpResponseMessage response = await client.GetAsync("api/Ship/1");
+        HttpResponseMessage response = await client.GetAsync("api/Ship/" + vm.ShipID);
 
         response.EnsureSuccessStatusCode();
         vm.Player = await response.Content.ReadFromJsonAsync<ShipModel>();
         
-        response = await client.GetAsync("api/City/1");
+        response = await client.GetAsync("api/City/" + vm.CityID);
         response.EnsureSuccessStatusCode();
         vm.City = await response.Content.ReadFromJsonAsync<CityModel>();
 

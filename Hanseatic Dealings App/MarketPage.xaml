@@ -5,7 +5,8 @@
              Title="Market Place"
              xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
              xmlns:model="clr-namespace:Hanseatic_Dealings_App.Models"
-             x:DataType="viewmodel:MarketViewModel">
+             x:DataType="viewmodel:MarketViewModel"
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.Resources>
         <Style TargetType="Button">
@@ -83,45 +84,7 @@
                     
                 </StackLayout>
             </ScrollView>
-            <!--<CollectionView ItemsSource="{Binding City.Goods}" Grid.Row="1" Grid.ColumnSpan="4">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:CityStorageModel">
-                        <Grid ColumnDefinitions="*,*,*,*,*">
-                            <Label
-                                HorizontalOptions="Center"
-                                Grid.Column="0"
-                                Text="{Binding Item}"
-                                />
-                            <Label
-                                HorizontalOptions="Center"
-                                Grid.Column="1"
-                                Text="{Binding Current}"
-                                />
-                            <Button
-                                Padding="5,0"
-                                Text="12345"
-                                Grid.Column="2"
-                                />
-                            <Button
-                                Padding="5,0"
-                                Grid.Column="3"
-                                Text="100000"
-                                />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-            <CollectionView ItemsSource="{Binding Player.Goods}"  Grid.Column="4">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate x:DataType="model:ShipStorageModel">
-                        <Label
-                            HorizontalOptions="Center"
-                            Text="{Binding Amount}"
-                            />
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>-->
-        </Grid>
+           </Grid>
         <Grid 
             Padding="2"
             ColumnSpacing="4"
@@ -144,12 +107,7 @@
                     LineBreakMode="HeadTruncation"
                 />
             </Grid>
-            <Grid Grid.Column="2" ColumnDefinitions="auto,auto,auto,auto">
-                <Button x:Name="amunt1" Grid.Column="0" Text="1"/>
-                <Button x:Name="amunt5" Grid.Column="1" Text="5"/>
-                <Button x:Name="amunt50" Grid.Column="2" Text="50"/>
-                <Button x:Name="amuntMax" Grid.Column="3" Text="Max"/>
-            </Grid>
+            <Button Command="{Binding ReturnToMapCommand}" Grid.Column="1" Text="Back"/>
         </Grid>
     </Grid>
 </ContentPage>

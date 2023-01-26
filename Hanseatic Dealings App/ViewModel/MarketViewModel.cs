@@ -10,11 +10,15 @@ using System.Net.Http.Json;
 namespace Hanseatic_Dealings_App.ViewModel;
 
 // text = Id
-[QueryProperty("CityName", "Id")]
+[QueryProperty("CityID", "CityID")]
+[QueryProperty("ShipID", "ShipID")]
 public partial class MarketViewModel : ObservableObject
 {
     [ObservableProperty]
-    string cityName;
+    string cityID;
+
+    [ObservableProperty]
+    string shipID;
 
     [ObservableProperty]
     public ShipModel player;
@@ -23,12 +27,16 @@ public partial class MarketViewModel : ObservableObject
     public CityModel city;
 
     [RelayCommand]
+    public async void ReturnToMap()
+    {
+        await Shell.Current.GoToAsync($"{nameof(MapPage)}?ShipId={Player.Id}");
+    }
+
+    [RelayCommand]
     public async void Buy(int id)
     {
-        HttpClient client = new();
-        client.BaseAddress = new Uri("http://10.130.54.25:5000/");
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        ApiModel CallApi = new();
+        var client = CallApi.getClient();
 
         MarketModel marketModel = new();
 
