@@ -1,9 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hanseatic_Dealings_App.MainPage"
+             x:Class="Hanseatic_Dealings_App.CreateUserPage"
              xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
-             x:DataType="viewmodel:LoginViewModel">
+             x:DataType="viewmodel:CreateUserViewModel"
+             Title="Create User">
+
 
     <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Default">
         <VerticalStackLayout>
@@ -15,24 +17,27 @@
                 <Label Text="Username:" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsTextPredictionEnabled="True" HorizontalOptions="Center" 
-                   WidthRequest="500" HeightRequest="50" Text="{Binding User.Email}"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding User.Email}"
                    HorizontalTextAlignment="Center" FontSize="Medium"/>
+
                 <Label Text="Password" HorizontalOptions="Center"
                FontSize="Large" FontAttributes="Bold"/>
                 <Entry IsPassword="True" HorizontalOptions="Center"
-                   WidthRequest="500" HeightRequest="50" Text="{Binding User.Password}"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding User.Password}"
+                   HorizontalTextAlignment="Center" FontSize="Medium"/>
+
+                <Label Text="Confirm Password" HorizontalOptions="Center"
+               FontSize="Large" FontAttributes="Bold"/>
+                <Entry IsPassword="True" HorizontalOptions="Center"
+                   WidthRequest="200" HeightRequest="50" Text="{Binding User.ConfirmPassword}"
                    HorizontalTextAlignment="Center" FontSize="Medium"/>
             </StackLayout>
 
             <StackLayout HorizontalOptions="Center" VerticalOptions="EndAndExpand" Spacing="20">
-                <Button Text="Login" 
+                <Button Text="Create" 
                         BackgroundColor="#474545" TextColor="GhostWhite"
-                FontAttributes="Bold" FontSize="Medium"
-                        Command="{Binding RedirectToShipListCommand}"/>
-                <Button Text="Sign Up" 
-                        BackgroundColor="#474545" TextColor="GhostWhite"
-                        FontAttributes="Bold" FontSize="Medium"
-                        Command="{Binding RedirectToCreateUserPageCommand}"/>
+                        FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"
+                        Command="{Binding RedirectToLoginCommand}"/>
             </StackLayout>
         </VerticalStackLayout>
     </ScrollView>

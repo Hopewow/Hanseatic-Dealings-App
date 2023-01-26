@@ -8,6 +8,6 @@ public partial class MarketPage : ContentPage
 	{
 		InitializeComponent();
 
-		BindingContext = vm;
+        BindingContext = vm;
 	}
 }
