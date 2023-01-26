@@ -16,4 +16,6 @@ public partial class CityModel : ObservableObject
     public string Xcord { get; set; }
 
     public string Ycord { get; set; }
+
+    public List<CityStorageModel>? Goods { get; set; }
 }

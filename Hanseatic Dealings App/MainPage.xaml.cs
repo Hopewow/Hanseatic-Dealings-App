@@ -21,11 +21,11 @@ public partial class MainPage : ContentPage
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            HttpResponseMessage response = await client.GetAsync("api/player/11");
+            HttpResponseMessage response = await client.GetAsync("api/Ship/1");
             response.EnsureSuccessStatusCode();
             vm.Player = await response.Content.ReadFromJsonAsync<ShipModel>();
 
-            response = await client.GetAsync("api/city");
+            response = await client.GetAsync("api/City");
             response.EnsureSuccessStatusCode();
             vm.cities = await response.Content.ReadFromJsonAsync<List<CityModel>>();
 

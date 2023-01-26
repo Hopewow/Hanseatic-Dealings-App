@@ -4,33 +4,28 @@
              x:Class="Hanseatic_Dealings_App.MarketPage"
              Title="Market Place"
              xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
+             xmlns:model="clr-namespace:Hanseatic_Dealings_App.Models"
              x:DataType="viewmodel:MarketViewModel">
 
     <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#e0b38c"/>
-                <Setter Property="BorderColor" Value="Black"/>
-                <Setter Property="BorderWidth" Value="2"/>
-                <Setter Property="TextColor" Value="Black"/>
-                <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="MaximumHeightRequest" Value="2"/>
-            </Style>
-            <Style TargetType="Label">
-                <Setter Property="FontSize" Value="Medium"/>
-            </Style>
-        </ResourceDictionary>
+        <Style TargetType="Button">
+            <Setter Property="BackgroundColor" Value="#e0b38c"/>
+            <Setter Property="BorderColor" Value="Black"/>
+            <Setter Property="BorderWidth" Value="2"/>
+            <Setter Property="TextColor" Value="White"/>
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
     </ContentPage.Resources>
     
     
-    <Grid RowDefinitions="10*,84*,6*" Padding="10" BackgroundColor="#e0b38c">
-        <Grid Grid.Row="0" ColumnDefinitions="auto,auto,auto,*" HorizontalOptions="Center" VerticalOptions="Center">
+    <Grid RowDefinitions="auto,*,auto" Padding="10" BackgroundColor="#e0b38c">
+        <Grid Grid.Row="0" ColumnDefinitions="auto,auto,auto,*" HorizontalOptions="Center" VerticalOptions="Center" Padding="0,20,0,20">
             <Label Grid.Column="0"
                 Text="City: "
             />
             <Label
                 Grid.Column="1"
-                Text="{Binding Text}"
+                Text="{Binding City.Name}"
             />
             <Label
                 Grid.Column="2"
@@ -41,95 +36,92 @@
                 Text="capacity/amount"
             />
         </Grid>
-        <ScrollView Orientation="Vertical" Grid.Row="1">
-            <Grid ColumnSpacing="5" >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto" />
-                    <RowDefinition Height="auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="name"
-                    />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Text="1000"
-                    />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    Text="1000"
-                    />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="3"
-                    Text="1000"
-                    />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="4"
-                    Text="1000"
-                    />
-                <Label
-                    Grid.Row="0"
-                    Grid.Column="5"
-                    Text="1000"
-                    />
-
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Text="name"
-                    />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Text="1000"
-                    />
-                <Button
-                    Padding="0"
-                    Grid.Row="1"
-                    Text="1000"
-                    Grid.Column="2"
-                    />
-                <Button
-                    Padding="0"
-                    Grid.Row="1"
-                    Grid.Column="3"
-                    Text="1000"
-                    />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="4"
-                    Text="1000"
-                    />
-                <Label
-                    Grid.Row="1"
-                    Grid.Column="5"
-                    Text="1000"
-                    />
-
-            </Grid>
-            <!--<CollectionView>
+        <Grid ColumnSpacing="5" RowSpacing="10" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                HorizontalOptions="Center"
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Goods"
+                />
+            <Label
+                HorizontalOptions="Center"
+                Grid.Row="0"
+                Grid.Column="1"
+                Text="Town"
+                />
+            <Label
+                HorizontalOptions="Center"
+                Grid.Row="0"
+                Grid.Column="2"
+                Text="Buy"
+                />
+            <Label
+                HorizontalOptions="Center"
+                Grid.Row="0"
+                Grid.Column="3"
+                Text="Sell"
+                />
+            <Label
+                HorizontalOptions="Center"
+                Grid.Row="0"
+                Grid.Column="4"
+                Text="Ship"
+                />
+            <ScrollView Grid.Row="1" Grid.ColumnSpan="5" VerticalOptions="Fill">
+                <StackLayout x:Name="MarketGrid" Spacing="5" >
+                    
+                </StackLayout>
+            </ScrollView>
+            <!--<CollectionView ItemsSource="{Binding City.Goods}" Grid.Row="1" Grid.ColumnSpan="4">
                 <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        
+                    <DataTemplate x:DataType="model:CityStorageModel">
+                        <Grid ColumnDefinitions="*,*,*,*,*">
+                            <Label
+                                HorizontalOptions="Center"
+                                Grid.Column="0"
+                                Text="{Binding Item}"
+                                />
+                            <Label
+                                HorizontalOptions="Center"
+                                Grid.Column="1"
+                                Text="{Binding Current}"
+                                />
+                            <Button
+                                Padding="5,0"
+                                Text="12345"
+                                Grid.Column="2"
+                                />
+                            <Button
+                                Padding="5,0"
+                                Grid.Column="3"
+                                Text="100000"
+                                />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <CollectionView ItemsSource="{Binding Player.Goods}"  Grid.Column="4">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ShipStorageModel">
+                        <Label
+                            HorizontalOptions="Center"
+                            Text="{Binding Amount}"
+                            />
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>-->
-        </ScrollView>
-        
+        </Grid>
         <Grid 
             Padding="2"
             ColumnSpacing="4"
@@ -148,15 +140,15 @@
                     FontSize="Medium"
                     VerticalTextAlignment="Center"
                     HorizontalTextAlignment="Start"
-                    Text="{Binding Money}"
+                    Text="{Binding Player.Money}"
                     LineBreakMode="HeadTruncation"
                 />
             </Grid>
             <Grid Grid.Column="2" ColumnDefinitions="auto,auto,auto,auto">
-                <Button Grid.Column="0" Text="1"/>
-                <Button Grid.Column="1" Text="5"/>
-                <Button Grid.Column="2" Text="50"/>
-                <Button Grid.Column="3" Text="Max"/>
+                <Button x:Name="amunt1" Grid.Column="0" Text="1"/>
+                <Button x:Name="amunt5" Grid.Column="1" Text="5"/>
+                <Button x:Name="amunt50" Grid.Column="2" Text="50"/>
+                <Button x:Name="amuntMax" Grid.Column="3" Text="Max"/>
             </Grid>
         </Grid>
     </Grid>
