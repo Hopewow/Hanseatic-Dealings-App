@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hanseatic_Dealings_App.ShipListPage"
+             xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
+             xmlns:model="clr-namespace:Hanseatic_Dealings_App.Models"
+             x:DataType="viewmodel:ShipListViewModel"
+             Shell.NavBarIsVisible="False">
+    
+    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Default">
+        <VerticalStackLayout>
+            <Label Text="You have the following ships:"
+               FontSize="Title" Padding="20"
+               HorizontalOptions="Center" VerticalOptions="Start"/>
+
+            <Button Text="Create New Ship"
+                BackgroundColor="#474545" TextColor="GhostWhite"
+                FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"
+                Command="{Binding RedirectToCreateShipPageCommand}"/>
+
+            <CollectionView ItemsSource="{Binding Ships}" Margin="0,25,0,0"
+                        SelectionMode="Single"
+                        SelectionChanged="CollectionView_SelectionChanged"
+                        HorizontalOptions="Center">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="model:ShipModel">
+                        <Grid HorizontalOptions="Center" Margin="5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="1" Grid.Row="0"
+                       Text="{Binding DisplayName}"
+                       FontAttributes="Bold" FontSize="Medium"/>
+                            <Label Grid.Column="1"  Grid.Row="1"
+                       Text="{Binding DisplayMoney}" HorizontalOptions="Center"
+                       VerticalOptions="End" FontSize="Subtitle" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Button Text="Logout" Margin="0,50,0,0"
+                BackgroundColor="#474545" TextColor="GhostWhite"
+                FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"
+                Command="{Binding RedirectToLoginCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

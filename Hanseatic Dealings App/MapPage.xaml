@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hanseatic_Dealings_App.MapPage"
+             xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
+             xmlns:model="clr-namespace:Hanseatic_Dealings_App.Models"
+             x:DataType="viewmodel:MapViewModel"
+             Title="Map"
+             Shell.NavBarIsVisible="False">
+
+    <ScrollView Orientation="Vertical">
+        <ScrollView Orientation="Horizontal">
+            <AbsoluteLayout x:Name="Page">
+                <Image Source="map.png" HeightRequest="1024" WidthRequest="1280"/>
+
+                <Label Text="{Binding Player.Name}"
+                       AbsoluteLayout.LayoutBounds="995, 48, 100, 50" 
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       FontSize="Medium" />
+                
+                <Label Text="{Binding Player.Money}"
+                       AbsoluteLayout.LayoutBounds="1105, 47, 100, 50" 
+                       FontAttributes="Bold"
+                       TextColor="Gold"
+                       FontSize="Medium" 
+                       FlowDirection="RightToLeft"/>
+
+                <Image AbsoluteLayout.LayoutBounds="1210, 47, 23, 23" 
+                       Source="coins.png"
+                       BackgroundColor="Transparent"/>
+
+                <Button AbsoluteLayout.LayoutBounds="35, 902, 25, 45" BackgroundColor="Transparent"
+                        Command="{Binding RedirectToHiddenAreaCommand}"/>
+
+                <Button Text="Market" 
+                        x:Name="Market"
+                        IsVisible="false"
+                        Command="{Binding RedirectToMarketCommand}"
+                        AbsoluteLayout.LayoutBounds="975, 77, 100, 45" CornerRadius="10"
+                        BackgroundColor="#474545" TextColor="GhostWhite"
+                        FontAttributes="Bold" FontSize="Medium" />
+
+                <Button AbsoluteLayout.LayoutBounds="1095, 77" Text="Ship Selection"
+                        BackgroundColor="#474545" TextColor="GhostWhite"
+                        FontAttributes="Bold" FontSize="Medium"
+                        Command="{Binding RedirectToShipSelectionCommand}"/>
+            </AbsoluteLayout>
+        </ScrollView>
+    </ScrollView>
+</ContentPage>

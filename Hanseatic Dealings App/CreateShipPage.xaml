@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hanseatic_Dealings_App.CreateShipPage"
+             xmlns:viewmodel="clr-namespace:Hanseatic_Dealings_App.ViewModel"
+             x:DataType="viewmodel:CreateShipViewModel"
+             Shell.NavBarIsVisible="False">
+
+    <VerticalStackLayout>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="StartAndExpand" Spacing="10" Padding="0,0,0,25">
+            <Label Text="Hanseatic Dealings" FontSize="Title" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Red"/>
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Spacing="5" Padding="0,0,0,25">
+            <Label Text="Ship Name:" HorizontalOptions="Center"
+               FontSize="Large" FontAttributes="Bold" TextColor="Red"/>
+            <Entry IsTextPredictionEnabled="True" HorizontalOptions="Center" 
+                   WidthRequest="200" HeightRequest="50" Text="{Binding Ship.Name}" Placeholder="Ship name"
+                   HorizontalTextAlignment="Center" FontSize="Medium" TextColor="Red"/>
+        </StackLayout>
+
+        <StackLayout HorizontalOptions="Center" Spacing="20">
+            <Button Text="Create" 
+                    BackgroundColor="#474545" TextColor="GhostWhite"
+                    FontAttributes="Bold" FontSize="Medium"
+                    Command="{Binding RedirectToShipListCommand}"/>
+        </StackLayout>
+
+        <Button Text="Back"
+                BackgroundColor="#474545" TextColor="GhostWhite"
+                FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Start"
+                Command="{Binding RedirectToShipSelectionCommand}"/>
+    </VerticalStackLayout>
+</ContentPage>
