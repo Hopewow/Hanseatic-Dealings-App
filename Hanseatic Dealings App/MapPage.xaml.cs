@@ -1,6 +1,5 @@
 using Hanseatic_Dealings_App.ViewModel;
 
-
 namespace Hanseatic_Dealings_App;
 
 public partial class MapPage : ContentPage
@@ -18,7 +17,7 @@ public partial class MapPage : ContentPage
 
     private async void addButtons(MapViewModel vm)
     {
-        await Task.Delay(1500);
+        await Task.Delay(250);
         foreach (var city in vm.Cities)
         {
             RadioButton button = new();
@@ -59,13 +58,7 @@ public partial class MapPage : ContentPage
             market.IsVisible = true;
             market.CommandParameter = $"{btn.Content}";
 
-            var param = new Dictionary<string, object>()
-            {
-                {"ShipId", Data.Player.Id},
-                {"CityId", btn.Value}
-            };
-
-            await Shell.Current.GoToAsync($"{nameof(MarketPage)}", param);
+            await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={(int)btn.Value}&shipId={(int)Data.Player.Id}");
         }
     }
 }

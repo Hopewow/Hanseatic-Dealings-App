@@ -10,21 +10,23 @@ using System.Net.Http.Json;
 namespace Hanseatic_Dealings_App.ViewModel;
 
 // text = Id
-[QueryProperty("CityID", "CityID")]
-[QueryProperty("ShipID", "ShipID")]
+
+[QueryProperty(nameof(cityId), nameof(cityId))]
+[QueryProperty(nameof(shipId), nameof(shipId))]
 public partial class MarketViewModel : ObservableObject
 {
-    [ObservableProperty]
-    string cityID;
-
-    [ObservableProperty]
-    string shipID;
+    public int cityId { get; set; }
+    public int shipId { get; set; }
 
     [ObservableProperty]
     public ShipModel player;
 
     [ObservableProperty]
     public CityModel city;
+
+    public MarketViewModel() {
+        getData();
+    } 
 
     [RelayCommand]
     public async void ReturnToMap()
@@ -47,18 +49,13 @@ public partial class MarketViewModel : ObservableObject
         HttpResponseMessage response = await client.PutAsJsonAsync<MarketModel>("api/City/Purchase", marketModel);
         response.EnsureSuccessStatusCode();
 
-
-        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?PlayerId={Player.Id}CityId={City.Id}");
-
+        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
     }
     [RelayCommand]
     public async void Sell(int id)
     {
-        HttpClient client = new();
-        client.BaseAddress = new Uri("http://10.130.54.25:5000/");
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
+        ApiModel CallApi = new();
+        var client = CallApi.getClient();
 
         MarketModel marketModel = new MarketModel();
         marketModel.Player = Player;
@@ -70,8 +67,23 @@ public partial class MarketViewModel : ObservableObject
         HttpResponseMessage response = await client.PutAsJsonAsync<MarketModel>("api/City/Sell", marketModel);
         response.EnsureSuccessStatusCode();
 
-        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?PlayerId={Player.Id}CityId={City.Id}");
+        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
 
     }
 
+    public async void getData()
+    {
+        await Task.Delay(1);
+        ApiModel CallApi = new();
+        var client = CallApi.getClient();
+
+        HttpResponseMessage response = await client.GetAsync($"api/Ship/{shipId}");
+
+        response.EnsureSuccessStatusCode();
+        Player = await response.Content.ReadFromJsonAsync<ShipModel>();
+
+        response = await client.GetAsync($"api/City/{cityId}");
+        response.EnsureSuccessStatusCode();
+        City = await response.Content.ReadFromJsonAsync<CityModel>();
+    }
 }

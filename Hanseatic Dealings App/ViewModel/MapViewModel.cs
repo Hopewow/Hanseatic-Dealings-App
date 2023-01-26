@@ -44,7 +44,7 @@ public partial class MapViewModel : ObservableObject
 
     public async void getData()
     {
-        await Task.Delay(1000);
+        await Task.Delay(1);
         ApiModel CallApi = new();
         var client = CallApi.getClient();
 

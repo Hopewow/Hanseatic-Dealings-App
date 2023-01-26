@@ -32,7 +32,7 @@ public partial class ShipListViewModel : ObservableObject
 
     public async void getListOfShips()
     {
-        await Task.Delay(500);
+        await Task.Delay(1);
         ApiModel CallApi = new();
         var client = CallApi.getClient();
         //UserId = 1;

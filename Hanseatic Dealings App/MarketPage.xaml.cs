@@ -9,32 +9,14 @@ public partial class MarketPage : ContentPage
 {
     public MarketPage(MarketViewModel vm)
     {
-           
         BindingContext = vm;
-        
-        
         InitializeComponent();
         MarketAsync(vm);
-
     }
     public async void MarketAsync(MarketViewModel vm)
     {
+        await Task.Delay(500);
         MarketGrid.Children.Clear();
-
-        HttpClient client = new();
-        client.BaseAddress = new Uri("http://10.130.54.25:5000/");
-        client.DefaultRequestHeaders.Accept.Clear();
-        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-        HttpResponseMessage response = await client.GetAsync("api/Ship/" + vm.ShipID);
-
-        response.EnsureSuccessStatusCode();
-        vm.Player = await response.Content.ReadFromJsonAsync<ShipModel>();
-        
-        response = await client.GetAsync("api/City/" + vm.CityID);
-        response.EnsureSuccessStatusCode();
-        vm.City = await response.Content.ReadFromJsonAsync<CityModel>();
-
 
         for (int i = 0; i < vm.City.Goods.Count; i++)
         {
