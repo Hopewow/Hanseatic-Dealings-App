@@ -29,7 +29,6 @@ public partial class ShipListViewModel : ObservableObject
     {
         Application.Current.Quit();
     }
-
     public async void getListOfShips()
     {
         await Task.Delay(1);

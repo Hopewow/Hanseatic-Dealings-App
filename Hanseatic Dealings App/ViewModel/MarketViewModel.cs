@@ -4,6 +4,7 @@ using Hanseatic_Dealings_App.Models;
 using Microsoft.Maui.Controls;
 using System;
 using System.Diagnostics;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 
@@ -47,10 +48,17 @@ public partial class MarketViewModel : ObservableObject
         marketModel.Amount = 1;
 
         HttpResponseMessage response = await client.PutAsJsonAsync<MarketModel>("api/City/Purchase", marketModel);
-        response.EnsureSuccessStatusCode();
-
-        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
+        if (response.StatusCode == HttpStatusCode.OK)
+        {
+            await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
+        }
+        else
+        {
+            await Shell.Current.DisplayAlert("Error", "Someone has already purchased this will reload the page.", "Ok");
+            await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
+        }
     }
+
     [RelayCommand]
     public async void Sell(int id)
     {
@@ -65,10 +73,15 @@ public partial class MarketViewModel : ObservableObject
         marketModel.Amount = 1;
 
         HttpResponseMessage response = await client.PutAsJsonAsync<MarketModel>("api/City/Sell", marketModel);
-        response.EnsureSuccessStatusCode();
 
-        await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
-
+        if (response.StatusCode == HttpStatusCode.OK)
+        {
+            await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
+        } else
+        {
+            await Shell.Current.DisplayAlert("Error", "Someone has already sold this will reload the page.", "Ok");
+            await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
+        }
     }
 
     public async void getData()

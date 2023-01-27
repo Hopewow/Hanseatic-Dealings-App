@@ -25,16 +25,8 @@
                 Text="City: "
             />
             <Label
-                Grid.Column="1"
+                Grid.Column="1" Grid.ColumnSpan="2"
                 Text="{Binding City.Name}"
-            />
-            <Label
-                Grid.Column="2"
-                Text=" Cargo: "
-            />
-            <Label
-                Grid.Column="3"
-                Text="capacity/amount"
             />
         </Grid>
         <Grid ColumnSpacing="5" RowSpacing="10" Grid.Row="1">
