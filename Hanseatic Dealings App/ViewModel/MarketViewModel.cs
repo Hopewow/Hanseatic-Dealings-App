@@ -51,6 +51,9 @@ public partial class MarketViewModel : ObservableObject
         if (response.StatusCode == HttpStatusCode.OK)
         {
             await Shell.Current.GoToAsync($"{nameof(MarketPage)}?cityId={City.Id}&shipId={Player.Id}");
+        } else if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            await Shell.Current.DisplayAlert("Error", "Does not have any more of this product.", "Ok");
         }
         else
         {
